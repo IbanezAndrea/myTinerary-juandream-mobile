@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, TextInput } from 'react-native'
+import { View, Text, ScrollView, TextInput, ImageBackground, StyleSheet } from 'react-native'
 // import RNPickerSelect from "react-native-picker-select";
 import style from "../styles/citiesStyles"
 import { useState, useEffect } from "react";
@@ -26,12 +26,14 @@ export default function Cities() {
             : setCountry([])
         }
     }, [citiesBase])
-  
 
-  return (
-    <ScrollView style={style.citiesPageMain} nestedScrollEnabled={true}>
-      <Text style={style.citiesPageTitle}>Cities</Text>
-      <View style={style.filterdivs}>
+const bgImage = { uri: 'https://wallpapercave.com/wp/wp1809587.jpg'}
+
+return (
+    <ImageBackground source={bgImage} resizeMode="cover" style={{width: '100%', height: '100%'}}>
+    <ScrollView style={styles.citiesPageMain} nestedScrollEnabled={true}>
+    <Text style={styles.citiesPageTitle}>Cities</Text>
+    <View style={styles.filterdivs}>
         {/* <RNPickerSelect
             style={style.citiesPageOrder}
             // placeholder={{ label: "↩ Select an order", value: "none" }}
@@ -47,7 +49,7 @@ export default function Cities() {
         <TextInput
           onChangeText={value => setSearchValue(value)}
           placeholder="Search"
-          style={style.citiesPageSearch}
+          style={styles.citiesPageSearch}
         />
         {/* <RNPickerSelect
               style={style.citiespageSelect2}
@@ -56,10 +58,29 @@ export default function Cities() {
               items={country?.map(cntry => {
                 return { label: cntry, value: cntry }
               })} /> */}
-      </View>
-      <View>
+    </View>
+    <View>
         <TableList data={cities} />
-      </View>
+    </View>
     </ScrollView>
-  )
+    </ImageBackground>
+    )
 }
+
+const styles = StyleSheet.create({
+
+    citiesPageTitle: {
+        color: 'rgb(30, 33, 45)',
+        fontSize: 30,
+        lineHeight: 60,
+        fontFamily: 'sans-serif',
+        fontWeight: "bold",
+        textAlign: "center",
+        },
+        citiesPageSearch: {
+            fontSize: 20,
+            fontFamily: 'sans-serif',
+            fontWeight: "bold",
+            
+        }
+})
