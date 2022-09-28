@@ -68,17 +68,26 @@ return (
 const styles = StyleSheet.create({
 
     citiesPageTitle: {
-        color: 'rgb(30, 33, 45)',
-        fontSize: 30,
+        margin: 30,
+        color: '#FAF3E0',
+        fontSize: 34,
         lineHeight: 60,
         fontFamily: 'sans-serif',
         fontWeight: "bold",
         textAlign: "center",
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10
         },
         citiesPageSearch: {
             fontSize: 20,
             fontFamily: 'sans-serif',
             fontWeight: "bold",
-            
+            color: '#1E212D',
+            backgroundColor: 'rgb(250, 243, 224)',
+            width: '60%',
+            borderRadius: 20,
+            alignSelf: 'center',
+            padding: 5
         }
 })
