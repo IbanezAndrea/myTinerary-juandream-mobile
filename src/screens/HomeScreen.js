@@ -1,12 +1,21 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, ScrollView, ImageBackground } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+
+const image =  { uri: "https://images7.alphacoders.com/110/thumb-1920-1108495.png" };
 
 export default function HomeScreen() {
+
+
     return (
-    <View>
-        <Text >MyTinerary</Text>
-            <Text >Find your perfect trip</Text>
-            <Text >designed by insiders who know and love their cities!</Text>
-    </View>
+        <ImageBackground source={image} resizeMode="cover" style={{width: '100%', height: '100%'}}>
+            <SafeAreaView>
+                    <Hero /> 
+                <ScrollView />
+            </SafeAreaView>
+        </ImageBackground>
+
     )
 }

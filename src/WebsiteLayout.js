@@ -3,11 +3,12 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import { View,Text } from 'react-native'
 
-export default function WebsiteLayout() {
+export default function WebsiteLayout(props) {
+
     return (
     <View>
         <Header />
-        <Text> Se rompe todo el native</Text>
+        {props.children}
         <Footer />
     </View>
     )
