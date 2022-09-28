@@ -59,9 +59,7 @@ return (
                 return { label: cntry, value: cntry }
               })} /> */}
     </View>
-    <View>
         <TableList data={cities} />
-    </View>
     </ScrollView>
     </ImageBackground>
     )
