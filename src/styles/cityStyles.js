@@ -9,14 +9,6 @@ const style = StyleSheet.create({
     cityContainer: { 
     flex:1,
     justifyContent: 'center',
-    borderStyle: 'solid',
-    borderColor: '#1E212D' ,
-    borderWidth: 6,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-    overflow: 'hidden',
     marginBottom: 6,
     },
     cityItem: {
@@ -64,10 +56,25 @@ const style = StyleSheet.create({
         margin: 4,
     },
     citySubtitle: {
-        padding: 2,
+        margin: 2,
+        padding: 10,
         color: "#FAF3E0",
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 20,
+        alignSelf:'center',
+        textShadowColor: "#1E212D",
+        textShadowOffset: { width: 4, heigth: 2 },
+        textShadowRadius: 3,
+    },
+    details:{
+        borderStyle: 'solid',
+        borderColor: '#1E212D' ,
+        borderWidth: 6,
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+        overflow: 'hidden',
     }
 })
 export default style
