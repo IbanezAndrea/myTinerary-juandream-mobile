@@ -64,7 +64,7 @@ const HomeCarousel = (props) => {
                 {cities?.map((value, key) => (
                     <View style={{ height: '100%', width: dimension.width}}>
                         <ImageBackground
-                            source={{ uri: `${value.photo}` }} key={key._id}
+                            source={{ uri: `${value.photo}` }} key={value._id}
                             style={{ width: '100%', height: '100%', resizeMode: 'cover', flex: 1, justifyContent:'center' }}
                             PlaceholderContent={<ActivityIndicator />}>
                             <Text style={styles.city}>

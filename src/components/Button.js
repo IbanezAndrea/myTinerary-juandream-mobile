@@ -2,13 +2,15 @@ import React from 'react';
 import { Text, View, StyleSheet, Pressable } from 'react-native';
 
 
-export default function Button() {
+export default function Button({navigation}) {
     const title = 'Lets Go!' 
-
+    const pressBtn = () => {
+        navigation.navigate('Cities')
+    }
     return (
         <View style={{ alignItems:'center'}}>
         <Pressable style={styles.button} >
-        <Text style={styles.text}>{title}</Text>
+        <Text style={styles.text} onPress={pressBtn}>{title}</Text>
         </Pressable>
         </View>
     );
