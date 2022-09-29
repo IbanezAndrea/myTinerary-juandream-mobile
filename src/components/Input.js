@@ -19,7 +19,7 @@ export default function Input(props) {
                 {inputArray.map(formStructure)}
                 <Pressable style={style.formButton}
                     onPress={props.event} >
-                    <Text>Send</Text>
+                    <Text style={style.textBtn}>Send</Text>
                 </Pressable>
             </View>
         )
