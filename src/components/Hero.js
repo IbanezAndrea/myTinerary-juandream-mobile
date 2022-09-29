@@ -7,16 +7,15 @@ import Button from './Button';
 
 const image =  { uri: "https://images7.alphacoders.com/110/thumb-1920-1108495.png" };
 
-export default function Hero(props) {
-
+export default function Hero() {
 
     return (
-            <View >
+            <View style={styles.container}>
                     <Image source={{
                     uri: "https://my-tinerary-juandream.herokuapp.com/img/logomytinerary.png",
                     }} style={styles.logotype} resizeMode="contain" />
                     <Text style={styles.titleText}>My tinerary</Text>
-                    <Text style={styles.text}>find your perfect trip, designed by insiders who knows and love their cities!</Text>
+                    <Text style={styles.text}>find your perfect trip, designed by insiders who know and love their cities!</Text>
                     <Button />
                     
             </View>
@@ -29,7 +28,6 @@ const styles = StyleSheet.create({
     logotype: {
         width: '20%',
         height: 100,
-        marginTop: 5,
         alignSelf: 'center'
     },
     text: {
@@ -46,7 +44,7 @@ const styles = StyleSheet.create({
     titleText: {
         marginTop: 35,
         color: '#FAF3E0',
-        fontSize: 30,
+        fontSize: 38,
         lineHeight: 60,
         fontWeight: "bold",
         textAlign: "center",
@@ -54,6 +52,11 @@ const styles = StyleSheet.create({
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 10,
     
+        },
+        container:{
+            padding: 8,
+            marginTop: 10,
+            marginBottom: 10,
         },
 
     });

@@ -5,7 +5,7 @@ import { logIn, setCredentials} from "../features/user/userSlice"
 import { ScrollView } from 'react-native-gesture-handler';
 import { useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Text, View } from "react-native";
+import { ImageBackground, Text, View } from "react-native";
 function SignIn() {
     const emailEl = useRef(null)
     const passwordEl = useRef(null)
@@ -38,15 +38,17 @@ function SignIn() {
             logIn()
         }
     }
-
+const image = { uri: "https://c.wallhere.com/photos/c5/be/Dubai_skyline_city_cityscape-1783753.jpg!d" };
 
     return (
-        <ScrollView className="signin-page-main">
+        <ImageBackground source={image} resizeMode="cover" style={{width: '100%', height: '100%'}}>
+        <ScrollView>
             <Input inputsData={inputArray} event={signUserForm} />
             <View>
                 <Text>{nameUser}!</Text>
             </View>
         </ScrollView>
+        </ImageBackground>
     )
 }
 

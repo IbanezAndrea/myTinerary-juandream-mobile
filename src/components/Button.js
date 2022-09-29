@@ -1,14 +1,13 @@
 import React from 'react';
 import { Text, View, StyleSheet, Pressable } from 'react-native';
 
-export default function Button(props) {
-    const { onPress, title = 'Lets Go!' } = props;
 
-
+export default function Button() {
+    const title = 'Lets Go!' 
 
     return (
         <View style={{ alignItems:'center'}}>
-        <Pressable style={styles.button} onPress={onPress}>
+        <Pressable style={styles.button} >
         <Text style={styles.text}>{title}</Text>
         </Pressable>
         </View>
@@ -17,7 +16,7 @@ export default function Button(props) {
 
 const styles = StyleSheet.create({
     button: {
-        margin: 160,
+    margin: 100,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
