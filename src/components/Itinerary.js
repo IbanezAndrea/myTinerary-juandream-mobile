@@ -13,7 +13,7 @@ export default function Itinerary(props) {
     <ScrollView>
         <View style={style.itinerarycontainer}>
                 <Text style={style.itineraryname}>{itinerary.name}</Text>
-                    <Image source={{uri: itinerary.user?.photo}} style={{width: 100,borderRadius:20,height: 100,resizeMode: 'contain', }}/>
+                    <Image source={{uri: itinerary.user?.photo}} style={{width: 100,borderRadius:50,height: 100,resizeMode: 'contain', }}/>
                 <Text style={style.itinerarytext1}>{itinerary.user.name}</Text>
                 <Text style={style.itinerarytext1}>{itinerary.user.country}</Text>
             <View style={style.itinerarybody}>

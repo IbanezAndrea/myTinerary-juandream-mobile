@@ -1,4 +1,4 @@
-import { View, Text, Image, Button } from "react-native"
+import { View, Text, Image, Pressable } from "react-native"
 import { useState, useEffect } from "react"
 import { useGetItinerariesCommentMutation} from "../features/actions/commentsAPI"
 import style from "../styles/commentsStyles"
@@ -8,11 +8,12 @@ import { ScrollView } from "react-native-gesture-handler"
 export default function Comments(props) {
     let id = props?.itinerary
     const user = props.userId
-    
     let [getItinerariesComment,{data: comments}]= useGetItinerariesCommentMutation(id)
     
     useEffect(() => {
         if (!open) {   
+            getItinerariesComment(id)
+        } else {
             getItinerariesComment(id)
         }
     },[open])
@@ -29,12 +30,12 @@ export default function Comments(props) {
         return (
         <View  key={comment._id} style={style.commentcontainer}>
             <View style={style.usercomment}>
-                    <Image source={{uri: comment.user.photo}}  style={{width: 50, height: 50, borderRadius: 20, resizeMode: 'contain'}}alt={comment.user.name}/>
+                    <Image source={{uri: comment.user.photo}}  style={{width: 60, height: 60, borderRadius: 50, resizeMode: 'contain'}}alt={comment.user.name}/>
                     <Text style={style.commentname}>{ comment.user.name}</Text>
                     <Text style={style.commentlastname}>{ comment.user.lastname}</Text>
                 </View>
             <View style={style.comment}>
-                    <Text style={style.commentp}>1
+                    <Text style={style.commentp}>
                         {comment.comment}
                     </Text>
                 </View>
@@ -45,15 +46,17 @@ export default function Comments(props) {
 
     return (
         <ScrollView>
-            {comments?.length?
-            <Button style={style.commentsbtn} onPress={handleOpen} title={open? "Close ":"" + 'Comments' } /> 
-            : <Text>There are not comments here...</Text> }
-                {open ?
-            <View >
-                    {comments?.map(viewComment)}
-            </View>
-                    :null
-                }
+        {comments?.length?
+            <Pressable style={!open? style.commentsbtn : style.pressedbtn } onPress={handleOpen} >
+            <Text style={style.text}>{open? "Hide Comments": "Show Comments"}</Text>
+            </Pressable>
+        : <Text style={style.nocomments}>There are not comments here... ಥ_ಥ</Text> }
+            {open ?
+        <View >
+                {comments?.map(viewComment)}
+        </View>
+                :null
+            }
         </ScrollView>
     
     )
