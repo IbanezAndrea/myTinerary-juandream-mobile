@@ -22,6 +22,7 @@ export default function City() {
     return (
         <ImageBackground source={mainBg} resizeMode="cover" style={{width: '100%', height: '100%'}}>
         <ScrollView style={style.cityMain}>
+            {id ?<>
             <ImageBackground style={style.cityContainer}>
             <View style={style.details}>
                 <ImageBackground style={style.cityItem} source={{ uri: city.photo }}>
@@ -51,8 +52,12 @@ export default function City() {
                                 })
                             :null }
                     { itineraries?.length? null 
-                    : <Text style={style.citySubtitle}> We don't have any itineraries here right now...</Text>}
+                    : <Text style={style.citySubtitle}> We don't have any itineraries here right now...</Text>} 
         </ImageBackground>
+            </> 
+        : <View>
+        <Text>Please Select a city before</Text>
+        </View> }
         </ScrollView>
         </ImageBackground>
     )
