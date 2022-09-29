@@ -1,23 +1,23 @@
-import { setStatusBarBackgroundColor } from 'expo-status-bar';
+
 import React from 'react'
-import {ImageBackground, StyleSheet, Image, View, Text,Pressable} from 'react-native'
+import { StyleSheet, Image, View, Text} from 'react-native'
 import 'react-native-gesture-handler'
 import Cities from '../screens/Cities'
+import Button from './Button';
 
 const image =  { uri: "https://images7.alphacoders.com/110/thumb-1920-1108495.png" };
 
-export default function Hero({ navigation }) {
+export default function Hero(props) {
+
 
     return (
             <View >
                     <Image source={{
                     uri: "https://my-tinerary-juandream.herokuapp.com/img/logomytinerary.png",
                     }} style={styles.logotype} resizeMode="contain" />
-                    <Text style={styles.titleText}>My tineraries</Text>
-                    <Text style={styles.text}>Find your perfect trip, designed by insiders who knows and love their cities!</Text>
-                    <Pressable style={styles.btn} onPress={ () => navigation.navigate(Cities)}>
-                        <Text style={styles.btnText}> Lets go! </Text>
-                    </Pressable>
+                    <Text style={styles.titleText}>My tinerary</Text>
+                    <Text style={styles.text}>find your perfect trip, designed by insiders who knows and love their cities!</Text>
+                    <Button />
                     
             </View>
         
@@ -29,37 +29,32 @@ const styles = StyleSheet.create({
     logotype: {
         width: '20%',
         height: 100,
-        marginTop: 10,
+        marginTop: 5,
         alignSelf: 'center'
     },
     text: {
-        color: 'rgb(30, 33, 45)',
+        color: '#FAF3E0',
         fontSize: 24,
         lineHeight: 40,
         fontWeight: "bold",
         textAlign: "center",
         fontStyle: 'italic',
-        fontFamily: 'sans-serif',
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10
         },
     titleText: {
-        color: 'rgb(30, 33, 45)',
+        marginTop: 35,
+        color: '#FAF3E0',
         fontSize: 30,
         lineHeight: 60,
-        fontFamily: 'sans-serif',
         fontWeight: "bold",
         textAlign: "center",
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10,
+    
         },
-    btn: {
-        borderRadius: 12,
-        alignSelf: 'center',
-        backgroundColor: 'rgb(30, 33, 45)',
-        color: 'rgb(30, 33, 45)',
-        margin: 20,
-        padding: '2%'
-    },
-    btnText: {
-        color: 'rgb(250, 243, 224)',
-        fontSize: 28
-    }
+
     });
     

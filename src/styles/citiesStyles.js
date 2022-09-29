@@ -3,7 +3,10 @@ import {StyleSheet} from "react-native"
 const style = StyleSheet.create({
     citiesPageMain: {},
     citiesPageTitle: {},
-    filterdivs: {},
+    filterdivs: {
+        flex:1,
+        alignContent: 'center',
+    },
     citiesPageOrder: {},
     citiespageSelect: {},
     citiesPageSearch: {},
