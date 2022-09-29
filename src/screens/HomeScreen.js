@@ -7,7 +7,7 @@ import { useGetAllCitiesBaseQuery } from '../features/actions/citiesAPI'
 
 const image =  { uri: "https://images7.alphacoders.com/110/thumb-1920-1108495.png" };
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
     
     let { data: cities } = useGetAllCitiesBaseQuery()
 
@@ -15,7 +15,7 @@ export default function HomeScreen() {
         <ImageBackground source={image} resizeMode="cover" style={{width: '100%', height: '100%'}}>
             <SafeAreaView>
                 <ScrollView>
-                    <Hero /> 
+                    <Hero navigation={navigation} /> 
                     <Carousel data={cities}/>
                 </ScrollView>
             </SafeAreaView>

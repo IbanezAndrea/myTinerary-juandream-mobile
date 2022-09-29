@@ -1,8 +1,7 @@
 import Input from "../components/Input";
 import { useUserSignUpMutation } from "../features/actions/usersAPI";
-import { useDispatch } from 'react-redux';
-import { useRef } from 'react';
-import { ImageBackground, Text, View } from "react-native";
+import { useRef, useState } from 'react';
+import { ImageBackground, ScrollView } from "react-native";
 
 export default function SignUp() {
     const emailEl = useRef(null)
@@ -11,6 +10,9 @@ export default function SignUp() {
     const lastnameEl= useRef(null)
     const countryEl= useRef(null)
     const photoEl= useRef(null)
+    
+    let [userSignUp] = useUserSignUpMutation()
+    
     const inputArray =[
         
         {
@@ -19,7 +21,7 @@ export default function SignUp() {
             placeholder: "Write your name here!",
         },
         {
-            name: "Lastname",
+            name: "Last Name",
             ref: lastnameEl,
             placeholder: "Write your last name here!",
         },
@@ -41,31 +43,34 @@ export default function SignUp() {
         {
             name: "Photo",
             ref: photoEl,
-            placeholder: "Insert the image url for your profile picture!",
+            placeholder: "Insert the image url",
 
         },
     ]
-    const dispatch = useDispatch()
-    let [userSignUp, { data: resSignUp, error}] = useUserSignUpMutation()
 
-    async function signUpUserForm (arrayform) {
+
+    const [userBody, setUserBody] = useState({
+        name: " ",
+        lastname: " ",
+        email: " ",
+        password: " ",
+        country: " ",
+        photo: " ",
+        role:'user',
+        from: "form"
+    });
+
+    async function signUpUserForm () {
         let data = {
             name: nameEl.current.value,
             lastname: lastnameEl.current.value,
             email: emailEl.current.value,
             password: passwordEl.current.value,
-            from: "form",
-            Country: countryEl.current.value,
-            Photo: photoEl.current.value,
-            role: "user"
+            country: countryEl.current.value,
+            photo: photoEl.current.value,
         }
-        await userSignUp(data)
-        if (resSignIn) {
-            let response = resSignIn.response
-            dispatch(setCredentials({user:response.user,token:response.token}))
-            logIn()
-        }
-        userSignUp(data)
+        setUserBody(...userBody, data)
+        await userSignUp(userBody)
     }
     
 

@@ -7,7 +7,7 @@ import Button from './Button';
 
 const image =  { uri: "https://images7.alphacoders.com/110/thumb-1920-1108495.png" };
 
-export default function Hero() {
+export default function Hero({navigation}) {
 
     return (
             <View style={styles.container}>
@@ -16,7 +16,7 @@ export default function Hero() {
                     }} style={styles.logotype} resizeMode="contain" />
                     <Text style={styles.titleText}>My tinerary</Text>
                     <Text style={styles.text}>find your perfect trip, designed by insiders who know and love their cities!</Text>
-                    <Button />
+                    <Button navigation={navigation} />
                     
             </View>
         
