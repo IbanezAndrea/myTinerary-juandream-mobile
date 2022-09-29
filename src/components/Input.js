@@ -9,18 +9,21 @@ export default function Input(props) {
         return (
             <View style={style.formLabel} key={item.name}>
                 <Text style={style.formP}>{item.name}</Text>
-                <TextInput style={style.formInput} placeholder={item.placeholder} ref={item.ref} defaultValue=""/>
+                <TextInput style={style.formInput}
+                    placeholder={item.placeholder}
+                    onChangeText={item.onChangeText}
+                    defaultValue="" />
             </View>
         )
     }
     return (
-            <View style={style.form}>
-                {props.children}
-                {inputArray.map(formStructure)}
-                <Pressable style={style.formButton}
-                    onPress={props.event} >
-                    <Text style={style.textBtn}>Send</Text>
-                </Pressable>
-            </View>
-        )
+        <View style={style.form}>
+            {props.children}
+            {inputArray.map(formStructure)}
+            <Pressable style={style.formButton}
+                onPress={props.event} >
+                <Text style={style.textBtn}>Send</Text>
+            </Pressable>
+        </View>
+    )
 }
