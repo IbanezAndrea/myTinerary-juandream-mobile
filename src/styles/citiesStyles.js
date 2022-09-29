@@ -6,6 +6,7 @@ const style = StyleSheet.create({
     filterdivs: {
         flex:1,
         alignContent: 'center',
+
     },
     citiesPageOrder: {},
     citiespageSelect: {},

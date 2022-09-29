@@ -17,7 +17,7 @@ export default function Hero({navigation}) {
                     <Text style={styles.titleText}>My tinerary</Text>
                     <Text style={styles.text}>find your perfect trip, designed by insiders who know and love their cities!</Text>
                     <Button navigation={navigation} />
-                    
+
             </View>
         
     )
