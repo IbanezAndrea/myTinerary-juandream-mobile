@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { createSlice } from '@reduxjs/toolkit'
 
 export const userSlice = createSlice({
@@ -15,11 +14,9 @@ export const userSlice = createSlice({
       state.logged = false
       state.user = {}
     },
-    setCredentials: async(state, action) => {
-      let userData = action.payload.user
-      let token = action.payload.token
+    setCredentials: (state, action) => {
+      let userData = action.payload
       userData? state.user = userData : state.user = {}
-      token && AsyncStorage.setItem("token",token)
     },
   },
 })
