@@ -62,9 +62,9 @@ const HomeCarousel = (props) => {
                 onMomentumScrollEnd={setIndex}
                 pagingEnabled>
                 {cities?.map((value, key) => (
-                    <View style={{ height: '100%', width: dimension.width}}>
+                    <View style={{ height: '100%', width: dimension.width}}  key={value._id}>
                         <ImageBackground
-                            source={{ uri: `${value.photo}` }} key={key._id}
+                            source={{ uri: `${value.photo}` }}
                             style={{ width: '100%', height: '100%', resizeMode: 'cover', flex: 1, justifyContent:'center' }}
                             PlaceholderContent={<ActivityIndicator />}>
                             <Text style={styles.city}>
