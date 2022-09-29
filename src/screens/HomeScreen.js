@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, ScrollView, ImageBackground } from 'react-native'
+import { Text, View, ScrollView, ImageBackground} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Carousel from '../components/Carousel'
 import Hero from '../components/Hero'
@@ -16,10 +16,11 @@ export default function HomeScreen() {
             <SafeAreaView>
                 <ScrollView>
                     <Hero /> 
-                <Carousel data={cities}/>
+                    <Carousel data={cities}/>
                 </ScrollView>
             </SafeAreaView>
         </ImageBackground>
 
     )
 }
+

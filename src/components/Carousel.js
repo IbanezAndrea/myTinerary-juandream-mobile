@@ -54,7 +54,7 @@ const HomeCarousel = (props) => {
 
     
     return (
-        <View style={{ width: '100%', marginTop: 40 }}>
+        <View style={{ width: '100%', marginTop: 40, marginBottom: 40}}>
             <ScrollView
                 style={{ height: 400, width: '100%' }}
                 horizontal
@@ -64,7 +64,7 @@ const HomeCarousel = (props) => {
                 {cities?.map((value, key) => (
                     <View style={{ height: '100%', width: dimension.width}}>
                         <ImageBackground
-                            source={{ uri: `${value.photo}` }} key={value._id}
+                            source={{ uri: `${value.photo}` }} key={key._id}
                             style={{ width: '100%', height: '100%', resizeMode: 'cover', flex: 1, justifyContent:'center' }}
                             PlaceholderContent={<ActivityIndicator />}>
                             <Text style={styles.city}>
