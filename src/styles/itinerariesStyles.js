@@ -22,11 +22,12 @@ const style = StyleSheet.create({
         padding:8,
         color: "#FAF3E0",
         fontWeight: 'bold',
-        fontSize: 18
+        fontSize: 24
     },
     itinerarytext1:{
         color: "#FAF3E0",
         margin: 2,
+        fontSize: 18,
         fontWeight: 'bold'
     },
     itinerarybody:{
@@ -42,7 +43,7 @@ const style = StyleSheet.create({
     itinerarydescription:{
         padding: 10,
         color: "#FAF3E0",
-        fontSize: 14
+        fontSize: 16
     },
     itinerarydatap:{
         padding: 5,

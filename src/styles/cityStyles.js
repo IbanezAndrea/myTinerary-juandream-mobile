@@ -75,6 +75,7 @@ const style = StyleSheet.create({
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
         overflow: 'hidden',
-    }
+    },
+
 })
 export default style
