@@ -61,7 +61,26 @@ const style = StyleSheet.create({
         fontSize: 18,
         color: '#1E212D',
         fontWeight: 'bold'
-        }
-
+        },
+    noitinerariestext: {
+        margin: 40,
+        textAlign: 'center',
+        fontSize: 28,
+        color: '#FAF3E0',
+        fontWeight: 'bold'
+    },
+    btntext:{
+        fontSize: 20,
+        color: '#FAF3E0',
+        fontWeight: 'bold',
+        textAlign:'center'
+    },
+    gohomebtn:{
+        backgroundColor: '#1E212D',
+        padding: 10,
+        borderRadius: 20,
+        width:'50%',
+        alignSelf: 'center'
+    }
 })
 export default style

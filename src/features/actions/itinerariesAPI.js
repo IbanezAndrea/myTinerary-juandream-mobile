@@ -25,10 +25,10 @@ export const itinerariesAPI = createApi({
             transformResponse: res => res.response
             }),
         getItinerariesUsers: builder.mutation({
-            query: () =>({ 
+            query: (token) =>({ 
                 url:`/itineraries/auth`,
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("token")
+                    "Authorization": "Bearer " + token
                     }
             }),
             transformResponse: res => res.response

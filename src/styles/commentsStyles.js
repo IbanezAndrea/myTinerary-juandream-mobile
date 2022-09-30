@@ -64,7 +64,7 @@ const style = StyleSheet.create({
     nocomments: {
         margin: 20,
         fontSize: 16,
-        color: '#FAF3E0',
+        color: '#1E212D',
         fontWeight: 'bold'
     }
 })

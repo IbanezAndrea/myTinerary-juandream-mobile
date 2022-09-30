@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { ImageBackground, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import style from "../styles/itinerariesStyles";
 
 function SignIn() {
     const [email,setEmail] = useState("")
@@ -40,9 +41,9 @@ function SignIn() {
             if (payload) {
                 let {token, user} = payload.response
                 dispatch(setCredentials(user))
-                dispatch(logIn())
                 token && await AsyncStorage.setItem("token",token)
                 navigation.navigate('Home')
+                dispatch(logIn())
             }
         }catch (err) {
             console.log(err)
@@ -56,7 +57,7 @@ const image = { uri: "https://c.wallhere.com/photos/c5/be/Dubai_skyline_city_cit
             <ScrollView>
                 <Input inputsData={inputArray} event={signUserForm} />
                 <View>
-                    <Text>{actUser?.name}!</Text>
+                    <Text style={style.welcome}>{actUser?.name}!</Text>
                 </View>
             </ScrollView>
         </ImageBackground>
