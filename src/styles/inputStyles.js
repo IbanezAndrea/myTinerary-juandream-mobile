@@ -39,6 +39,14 @@ const style = StyleSheet.create({
         color:'#1E212D',
         fontWeight: 'bold',
         fontSize: 18
+    },
+    welcome:{
+        fontSize: 18,
+        backgroundColor:'#FAF3E0',
+        borderRadius: 20,
+        padding: 8,
+        margin: 20,
+        width: 180
     }
 })
 export default style

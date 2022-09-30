@@ -7,27 +7,34 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import MyTineraries from '../screens/MyTineraries'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
 
 export default function DrawerContent(props) { 
     const logged = useSelector(state => state.user.logged)
     const dispatch = useDispatch()
     const navigation = useNavigation()
-    const [blackList,setBlackList] = useState(["City"])
-    const signOut = () => {
-        dispatch(logOut())
+    const [blackList,setBlackList] = useState([])
+   // const [ filteredProps, setFilteredProps] = useState(props)
+    //console.log(props.state)
+    const signOut = async () => {
+        await  AsyncStorage.removeItem('token')
+        dispatch(logOut())    
         navigation.navigate("Home")
     }
-    let filteredProps
+
+    let filteredProps = props
     useEffect(() => {
+
         if (logged) {
             setBlackList(["Sign in","Sign up"])
-            console.log(":)")
-        } else {
-            setBlackList(["My Tineraries"])
-            console.log(":(")
+
+        } else{
+            setBlackList([])
         }
     },[logged])
+
     filteredProps = {
         ...props,
         state: {
@@ -35,7 +42,7 @@ export default function DrawerContent(props) {
             routeNames: props.state.routeNames.filter(
                 (routeName) => !blackList.includes(routeName)),
             routes: props.state.routes.filter(
-                (route) => !blackList.some(r=>r === route.name) ),
+                (route) => !blackList.some(r=>r === route.name)), 
         }
     }
     

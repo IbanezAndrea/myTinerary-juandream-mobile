@@ -69,6 +69,18 @@ const style = StyleSheet.create({
         color: '#FAF3E0',
         fontWeight: 'bold'
     },
-
+    btntext:{
+        fontSize: 20,
+        color: '#FAF3E0',
+        fontWeight: 'bold',
+        textAlign:'center'
+    },
+    gohomebtn:{
+        backgroundColor: '#1E212D',
+        padding: 10,
+        borderRadius: 20,
+        width:'50%',
+        alignSelf: 'center'
+    }
 })
 export default style

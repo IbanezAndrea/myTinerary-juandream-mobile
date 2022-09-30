@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
         color: '#FAF3E0',
         fontSize: 34,
         lineHeight: 60,
-        fontFamily: 'sans-serif',
         fontWeight: "bold",
         textAlign: "center",
         textShadowColor: 'rgba(0, 0, 0, 0.75)',
@@ -81,7 +80,6 @@ const styles = StyleSheet.create({
         },
         citiesPageSearch: {
             fontSize: 20,
-            fontFamily: 'sans-serif',
             fontWeight: "bold",
             color: '#1E212D',
             backgroundColor: 'rgb(250, 243, 224)',
