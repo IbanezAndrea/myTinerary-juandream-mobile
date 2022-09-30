@@ -50,8 +50,18 @@ const style = StyleSheet.create({
         color: "#FAF3E0",
         fontSize: 14,
         alignSelf: 'center'
-    }
-
+    },
+    commentsbtn:{
+        backgroundColor: '#FAF3E0',
+        padding: 10,
+        borderRadius: 20,
+        textAlign: 'center',
+    },
+    text:{
+        fontSize: 18,
+        color: '#1E212D',
+        fontWeight: 'bold'
+        }
 
 })
 export default style
