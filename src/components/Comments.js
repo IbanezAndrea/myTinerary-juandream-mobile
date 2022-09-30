@@ -1,30 +1,19 @@
-import { View, Text, Image, Pressable } from "react-native"
+import { View, Text, Image, Pressable, ImageBackground } from "react-native"
 import { useState, useEffect } from "react"
 import { useGetItinerariesCommentMutation} from "../features/actions/commentsAPI"
 import style from "../styles/commentsStyles"
 import { ScrollView } from "react-native-gesture-handler"
+import { useRoute } from "@react-navigation/native"
 
 
 export default function Comments(props) {
-    let id = props?.itinerary
-    const user = props.userId
-    let [getItinerariesComment,{data: comments}]= useGetItinerariesCommentMutation(id)
+    const route = useRoute()
+    const {id, user} = route.params
+    let [getItinerariesComment, { data: comments }] = useGetItinerariesCommentMutation()
     
     useEffect(() => {
-        if (!open) {   
-            getItinerariesComment(id)
-        } else {
-            getItinerariesComment(id)
-        }
-    },[open])
-
-    const [open, setOpen] = useState(false)
-
-    const handleOpen = () => {
-        open ?
-        setOpen(false)
-        :setOpen(true)
-    }
+        getItinerariesComment(id)
+    },[id])
 
     const viewComment = (comment) => {
         return (
@@ -43,21 +32,16 @@ export default function Comments(props) {
         )
     }
 
-
+    const mainBg = {uri:"https://wallpapercave.com/wp/wp1809587.jpg"}
     return (
-        <ScrollView>
-        {comments?.length?
-            <Pressable style={!open? style.commentsbtn : style.pressedbtn } onPress={handleOpen} >
-            <Text style={style.text}>{open? "Hide Comments": "Show Comments"}</Text>
-            </Pressable>
-        : <Text style={style.nocomments}>There are not comments here... ಥ_ಥ</Text> }
-            {open ?
-        <View >
-                {comments?.map(viewComment)}
-        </View>
-                :null
-            }
-        </ScrollView>
-    
+        <ImageBackground source={mainBg} resizeMode="cover" style={{ width: '100%', height: '100%' }}>
+            <ScrollView style={style.commentMain}>
+                {comments?.length ?
+                    <View>
+                        {comments?.map(viewComment)}
+                    </View>
+                    : <Text style={style.nocomments}>There are not comments here... ಥ_ಥ</Text>}
+            </ScrollView>
+        </ImageBackground>
     )
 }

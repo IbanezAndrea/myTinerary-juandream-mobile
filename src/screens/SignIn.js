@@ -40,7 +40,7 @@ function SignIn() {
             if (payload) {
                 let {token, user} = payload.response
                 dispatch(setCredentials(user))
-                logIn()
+                dispatch(logIn())
                 token && await AsyncStorage.setItem("token",token)
                 navigation.navigate('Home')
             }
