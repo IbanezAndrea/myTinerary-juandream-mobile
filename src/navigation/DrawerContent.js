@@ -6,6 +6,8 @@ import { logOut } from '../features/user/userSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import MyTineraries from '../screens/MyTineraries'
+
 
 export default function DrawerContent(props) { 
     const logged = useSelector(state => state.user.logged)
@@ -45,7 +47,8 @@ export default function DrawerContent(props) {
             label="Sign Out"
             onPress={signOut}
             />
-        }
+        }     
         </DrawerContentScrollView>
+        
     )
 }

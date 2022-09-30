@@ -9,14 +9,16 @@ import SignUp from '../screens/SignUp'
 import City from '../screens/City'
 import DrawerContent from './DrawerContent'
 import StackCity from './StackCity'
+import MyTineraries from '../screens/MyTineraries'
 const DrawerNavigation = createDrawerNavigator()
 
 export default function Drawer() {
     return (
-        <DrawerNavigation.Navigator
+        <DrawerNavigation.Navigator 
             drawerContent={(props) => <DrawerContent {...props} />}>
-            <DrawerNavigation.Group>
+            <DrawerNavigation.Group >
                 <DrawerNavigation.Screen name='Home' component={HomeScreen} />
+                <DrawerNavigation.Screen name="My Tineraries" component={MyTineraries} /> 
                 <DrawerNavigation.Screen name='Cities' component={Cities} />
                 <DrawerNavigation.Screen name='Sign in' component={SignIn} />
                 <DrawerNavigation.Screen name='Sign up' component={SignUp} />

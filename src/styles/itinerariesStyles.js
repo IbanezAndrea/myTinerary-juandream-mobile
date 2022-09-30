@@ -61,7 +61,14 @@ const style = StyleSheet.create({
         fontSize: 18,
         color: '#1E212D',
         fontWeight: 'bold'
-        }
+        },
+    noitinerariestext: {
+        margin: 40,
+        textAlign: 'center',
+        fontSize: 28,
+        color: '#FAF3E0',
+        fontWeight: 'bold'
+    },
 
 })
 export default style

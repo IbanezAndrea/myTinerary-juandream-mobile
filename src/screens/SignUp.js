@@ -2,75 +2,71 @@ import Input from "../components/Input";
 import { useUserSignUpMutation } from "../features/actions/usersAPI";
 import { useRef, useState } from 'react';
 import { ImageBackground, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import SignIn from "./SignIn";
 
 export default function SignUp() {
-    const emailEl = useRef(null)
-    const passwordEl = useRef(null)
-    const nameEl= useRef(null)
-    const lastnameEl= useRef(null)
-    const countryEl= useRef(null)
-    const photoEl= useRef(null)
-    
+    const[lastname,setLastname]=useState("")
+    const [email,setEmail] = useState("")
+    const [country,setCountry] = useState("")
+    const [photo,setPhoto] = useState("")
+    const [name,setName] = useState("")
+    const [password,setPassword] = useState("")
+    const navigation = useNavigation()
     let [userSignUp] = useUserSignUpMutation()
     
     const inputArray =[
         
         {
             name: "Name",
-            ref: nameEl,
+            onChangeText: value=>setName(value),
             placeholder: "Write your name here!",
         },
         {
             name: "Last Name",
-            ref: lastnameEl,
+            onChangeText: value=>setLastname(value),
             placeholder: "Write your last name here!",
         },
         {
             name: "Email",
-            ref: emailEl,
+            onChangeText: value=>setEmail(value),
             placeholder: "Write your email here",
         },
         {
             name: "Country",
-            ref: countryEl,
+            onChangeText: value=>setCountry(value),
             placeholder: "Where are you from?",
         },
         {
             name: "Password",
-            ref: passwordEl,
+            onChangeText: value=>setPassword(value),
             placeholder: "Insert your password",
         },
         {
             name: "Photo",
-            ref: photoEl,
+            onChangeText: value=>setPhoto(value),
             placeholder: "Insert the image url",
-
         },
     ]
 
 
-    const [userBody, setUserBody] = useState({
-        name: " ",
-        lastname: " ",
-        email: " ",
-        password: " ",
-        country: " ",
-        photo: " ",
-        role:'user',
-        from: "form"
-    });
-
     async function signUpUserForm () {
         let data = {
-            name: nameEl.current.value,
-            lastname: lastnameEl.current.value,
-            email: emailEl.current.value,
-            password: passwordEl.current.value,
-            country: countryEl.current.value,
-            photo: photoEl.current.value,
+            name,
+            lastname,
+            email,
+            password,
+            country,
+            photo,
+            from: 'form',
+            role: 'user'
+        } 
+        try {
+            await userSignUp(data)      
+            navigation.navigate('Sign in')
+        }  catch (err) {
+            console.log(err)
         }
-        setUserBody(...userBody, data)
-        await userSignUp(userBody)
     }
     
 
