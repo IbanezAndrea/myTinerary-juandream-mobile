@@ -17,7 +17,7 @@ export default function MyTineraries({navigation}) {
         data: resItineraries,
         isSuccess
     }] = useGetItinerariesUsersMutation()
-        console.log(itineraries)
+       /// console.log(itineraries)
         useEffect(() => {
             if (user){
                 AsyncStorage.getItem('token')

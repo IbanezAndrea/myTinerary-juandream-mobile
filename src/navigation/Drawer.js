@@ -39,9 +39,9 @@ const loggedIn = useSelector(state=>state.user.logged)
                 color: '#1E212D',
                 fontStyle: 'italic',
                 fontWeight: 'bold'
-            }, headerTintColor:'#FAF3E0'
+            }, headerTintColor:'#FAF3E0',
             }} >
-            <DrawerNavigation.Group >
+            
                 <DrawerNavigation.Screen name='Home' component={HomeScreen} />
                 <DrawerNavigation.Screen name='Cities' component={Cities} />
             <DrawerNavigation.Screen name="City" component={StackCity} initialParams={{ id: "" }} options={{
@@ -53,7 +53,7 @@ const loggedIn = useSelector(state=>state.user.logged)
                 {loggedIn&& <DrawerNavigation.Screen name="My Tineraries" component={StackMyTineraries} />}
                 <DrawerNavigation.Screen name='Sign in' component={SignIn} />
                 <DrawerNavigation.Screen name='Sign up' component={SignUp} />
-            </DrawerNavigation.Group>
+            
         </DrawerNavigation.Navigator>
     )
 }

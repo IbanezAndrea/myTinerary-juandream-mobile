@@ -8,11 +8,14 @@ import { Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import MyTineraries from '../screens/MyTineraries'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { color } from 'react-native-reanimated'
 
 
 
 export default function DrawerContent(props) { 
     const logged = useSelector(state => state.user.logged)
+    //const user = useSelector(state => state.user.user)
+
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const [blackList,setBlackList] = useState([])
@@ -26,13 +29,15 @@ export default function DrawerContent(props) {
 
     let filteredProps = props
     useEffect(() => {
-
-        if (logged) {
-            setBlackList(["Sign in","Sign up"])
-
-        } else{
-            setBlackList([])
-        }
+ 
+            if (logged) {
+                setBlackList(["Sign in","Sign up"])
+    
+            } else{
+                setBlackList([])
+            }
+       
+        
     },[logged])
 
     filteredProps = {
@@ -50,7 +55,10 @@ export default function DrawerContent(props) {
         <DrawerContentScrollView {...filteredProps}>
             <DrawerItemList {...filteredProps} />
             {logged &&
-            <DrawerItem
+            <DrawerItem style={
+            {backgroundColor: '#FAF3E0',
+                }
+            }
             label="Sign Out"
             onPress={signOut}
             />
